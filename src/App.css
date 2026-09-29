@@ -17,6 +17,11 @@
   }
 }
 
+.my-heading {
+  color: #6f2da8;
+  font-size: 42px;
+}
+
 .hero {
   position: relative;
 

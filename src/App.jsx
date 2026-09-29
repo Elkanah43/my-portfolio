@@ -1,55 +1,31 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import Hero from './components/Hero.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1 className="my-heading">Hi, I'm Elkanah.</h1>
-          <p>
-            I design and build thoughtful digital experiences with clean code,
-            strong user focus, and a love for turning ideas into polished work.
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
+      <Hero />
       <div className="ticks"></div>
       <section id="next-steps">
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
-          <h2>What I do</h2>
-          <p>Creative problem-solving with purpose</p>
+          <h2>What I'm learning</h2>
+          <p>Building my skills one project at a time</p>
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={viteLogo} alt="" />
-                Web projects
+                Web development
               </a>
             </li>
             <li>
               <a href="https://react.dev/" target="_blank">
                 <img className="button-icon" src={reactLogo} alt="" />
-                Front-end design
+                React &amp; JavaScript
               </a>
             </li>
           </ul>
@@ -58,8 +34,8 @@ function App() {
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with me</h2>
-          <p>Let’s build something meaningful</p>
+          <h2>Follow my journey</h2>
+          <p>I'd love to connect and learn together</p>
           <ul>
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
