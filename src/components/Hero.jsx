@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import heroImg from '../assets/hero.png'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '../assets/vite.svg'
+import mePhoto from '../assets/images/me.jpg'
 
 export default function Hero() {
-  const [count, setCount] = useState(0)
-
   return (
-    <section id="center">
-      <div className="hero">
-        <img src={heroImg} className="base" width="170" height="179" alt="" />
-        <img src={reactLogo} className="framework" alt="React logo" />
-        <img src={viteLogo} className="vite" alt="Vite logo" />
+    <section className="section">
+      <div className="container hero-grid">
+        <div>
+          <p className="eyebrow">Learning front-end development</p>
+
+          <h1 className="hero__title">
+            Hi, I&apos;m <span>Elkanah</span>.
+          </h1>
+
+          <p className="hero__text">
+            I&apos;m learning to build front-end interfaces with React and
+            JavaScript. Every project here started as an empty file and something
+            I did not yet know how to do. I am at the start of this, and I would
+            rather show you real work in progress than pretend otherwise.
+          </p>
+
+          <div className="hero__actions">
+            <a className="button button-primary" href="#contact">
+              Get in touch
+            </a>
+            <a className="text-link" href="#work">
+              See my work &rarr;
+            </a>
+          </div>
+        </div>
+
+        {/* Replace src/assets/images/me.jpg with your own photo. */}
+        <img className="hero__photo" src={mePhoto} alt="Elkanah" />
       </div>
-      <div>
-        <h1 className="my-heading">Hi, I'm Elkanah.</h1>
-        <p>
-          I'm a beginner front-end developer learning to build clean,
-          user-friendly web apps with React. Every project I take on teaches me
-          something new, and I love seeing ideas come to life one component at
-          a time.
-        </p>
-      </div>
-      <button
-        type="button"
-        className="counter"
-        onClick={() => setCount((count) => count + 1)}
-      >
-        Count is {count}
-      </button>
     </section>
   )
 }

@@ -1,98 +1,51 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import Hero from './components/Hero.jsx'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import ScrollManager from './components/ScrollManager'
+
+import Home from './pages/Home'
+import ProjectOne from './pages/ProjectOne'
+import ProjectTwo from './pages/ProjectTwo'
+import ProjectThree from './pages/ProjectThree'
+import NotFound from './pages/NotFound'
+
+import { projects } from './data/projects'
+
+import './App.css'
+
+// The import above only needs one dot -- ./pages/Home -- because pages sits
+// right next to App.jsx. (Session 6, Part C.)
+
+export default function App() {
   return (
     <>
-      <Hero />
-      <div className="ticks"></div>
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>What I'm learning</h2>
-          <p>Building my skills one project at a time</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Web development
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                React &amp; JavaScript
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Follow my journey</h2>
-          <p>I'd love to connect and learn together</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/*
+        Navbar and Footer sit OUTSIDE <Routes>.
+        Anything outside shows on every page; anything inside shows only on its
+        own page. That is how one navbar serves the whole site.
+      */}
+      <Navbar />
+      <ScrollManager />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        {/*
+          The paths come from src/data/projects.js, which is the same file the
+          cards in Projects.jsx read. So a card and its route can never
+          disagree -- Session 6, Part I lists that as the top cause of
+          "page not found".
+        */}
+        <Route path={projects[0].path} element={<ProjectOne />} />
+        <Route path={projects[1].path} element={<ProjectTwo />} />
+        <Route path={projects[2].path} element={<ProjectThree />} />
+
+        {/* Anything else. */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      <Footer />
     </>
   )
 }
-
-export default App
